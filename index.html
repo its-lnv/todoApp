@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="bg-slate-100 p-5">
+    <div class="bg-white max-w-md mx-auto rounded-2xl overflow-hidden mt-15 shadow-2xl">
+        <div class="bg-indigo-500 p-4">
+            <h1 class="text-white font-extrabold text-xl">Todo App</h1>
+        </div>
+
+        <div class="p-5 relative" id="random">
+            <form id="todo-form" action="" class="flex gap-3 mb-1">
+                <input id="todo-input" type="text" class="flex-1 border border-slate-200 p-2 rounded-md outline-none focus:border-indigo-500 placeholder-gray-500 font-medium text-gray-600"
+                    placeholder="Enter task description...">
+                    <button id="form-btn" class="px-5 py-2 bg-indigo-500 rounded-md text-white font-medium hover:cursor-pointer">Add</button>
+            </form>
+            <button id="cancel-edit" class="underline underline-offset-2 absolute right-5 text-md hover:cursor-pointer hidden">Cancel Editing</button>
+
+            <div class="flex place-content-between pt-5 pb-1 text-xs border-b border-gray-200 text-gray-600 font-medium mt-6">
+                <p id="task-count" class="tracking-wider">TASKS (0)</p>
+                <p id="complete-count" class="tracking-wider">COMPLETED (0)</p>
+            </div>
+
+            <ul id="todo-list" class="py-5 flex flex-col gap-3"></ul>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
