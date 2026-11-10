@@ -1,4 +1,4 @@
-let todos = []
+let todos = JSON.parse(localStorage.getItem("todos")) || []
 
 const todoForm = document.querySelector("#todo-form")
 const todoInput = document.querySelector("#todo-input")
@@ -33,6 +33,7 @@ renderTodo()
 
 function deleteTodo(id) {
     todos = todos.filter(todo => todo.id !== Number(id))
+    localStorage.setItem("todos", JSON.stringify(todos))
     renderTodo()  // update in frontend
 }
 
@@ -59,8 +60,9 @@ function checkbox(id) {
         }
         return todo;
     })
+    
+    localStorage.setItem("todos", JSON.stringify(todos))
     renderTodo()
-    console.log(todos);
 
 }
 
@@ -92,6 +94,7 @@ todoForm.addEventListener('submit', (e) => {
             return todo;
         })
 
+        localStorage.setItem("todos", JSON.stringify(todos))
         todoInput.value = ""
         editTodoId = ""
         formBtn.textContent = "Add"
@@ -103,6 +106,7 @@ todoForm.addEventListener('submit', (e) => {
             isCompleted: false
         }
         todos.push(newTodo)
+        localStorage.setItem("todos", JSON.stringify(todos))
         todoInput.value = ""
     }
     cancelEditBtn.classList.add("hidden");
